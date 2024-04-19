@@ -1,0 +1,6 @@
+@Mango.Services.RoomTypeAPI_HostAddress = http://localhost:5145
+
+GET {{Mango.Services.RoomTypeAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
