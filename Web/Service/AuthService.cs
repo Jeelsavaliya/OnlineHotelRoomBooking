@@ -2,7 +2,7 @@
 using Mango.Web.Service.IService;
 using Mango.Web.Utility;
 
-namespace Web.Service
+namespace Mango.Web.Service
 {
     public class AuthService : IAuthService
     {
@@ -18,7 +18,7 @@ namespace Web.Service
             {
                 ApiType = SD.ApiType.POST,
                 Data = registrationRequestDto,
-                Url = SD.AuthAPIBase + "/api/auth/AssignRole"
+                Url = SD.AuthAPIBase + "/api/AuthAPI/AssignRole"
             });
         }
 
@@ -28,7 +28,7 @@ namespace Web.Service
             {
                 ApiType = SD.ApiType.POST,
                 Data = loginRequestDto,
-                Url = SD.AuthAPIBase + "/api/auth/login"
+                Url = SD.AuthAPIBase + "/api/AuthAPI/login"
             }, withBearer: false);
         }
 
@@ -38,7 +38,7 @@ namespace Web.Service
             {
                 ApiType = SD.ApiType.POST,
                 Data = registrationRequestDto,
-                Url = SD.AuthAPIBase + "/api/auth/register"
+                Url = SD.AuthAPIBase + "/api/AuthAPI/register"
             }, withBearer: false);
         }
     }

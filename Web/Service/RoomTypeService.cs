@@ -1,9 +1,8 @@
 ﻿using Mango.Web.Models;
 using Mango.Web.Service.IService;
 using Mango.Web.Utility;
-using Web.Service.IService;
 
-namespace Web.Service
+namespace Mango.Web.Service
 {
     public class RoomTypeService : IRoomTypeService
     {
@@ -20,7 +19,7 @@ namespace Web.Service
             {
                 ApiType = SD.ApiType.POST,
                 Data = productDto,
-                Url = SD.RoomTypeAPIBase + "/api/roomtype",
+                Url = SD.RoomTypeAPIBase + "/api/RoomTypeAPI",
                 ContentType = SD.ContentType.MultipartFormData
             });
         }
@@ -30,7 +29,7 @@ namespace Web.Service
             return await _baseService.SendAsync(new RequestDto()
             {
                 ApiType = SD.ApiType.DELETE,
-                Url = SD.RoomTypeAPIBase + "/api/roomtype/" + id
+                Url = SD.RoomTypeAPIBase + "/api/RoomTypeAPI/" + id
             });
         }
 
@@ -39,7 +38,7 @@ namespace Web.Service
             return await _baseService.SendAsync(new RequestDto()
             {
                 ApiType = SD.ApiType.GET,
-                Url = SD.RoomTypeAPIBase + "/api/roomtype"
+                Url = SD.RoomTypeAPIBase + "/api/RoomTypeAPI"
             });
         }
 
@@ -48,7 +47,7 @@ namespace Web.Service
             return await _baseService.SendAsync(new RequestDto()
             {
                 ApiType = SD.ApiType.GET,
-                Url = SD.RoomTypeAPIBase + "/api/roomtype/" + id
+                Url = SD.RoomTypeAPIBase + "/api/RoomTypeAPI/" + id
             });
         }
 
@@ -58,7 +57,7 @@ namespace Web.Service
             {
                 ApiType = SD.ApiType.PUT,
                 Data = productDto,
-                Url = SD.RoomTypeAPIBase + "/api/roomtype",
+                Url = SD.RoomTypeAPIBase + "/api/RoomTypeAPI",
                 ContentType = SD.ContentType.MultipartFormData
             });
         }

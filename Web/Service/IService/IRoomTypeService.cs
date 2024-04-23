@@ -1,6 +1,6 @@
 ﻿using Mango.Web.Models;
 
-namespace Web.Service.IService
+namespace Mango.Web.Service.IService
 {
     public interface IRoomTypeService
     {

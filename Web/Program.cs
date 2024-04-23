@@ -1,14 +1,26 @@
-using Web.Service;
-using Web.Service.IService;
+using Mango.Web.Service;
+using Mango.Web.Service.IService;
+using Mango.Web.Utility;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-// Add services to the container.
+builder.Services.AddHttpContextAccessor();
 builder.Services.AddHttpClient();
+
+
 builder.Services.AddHttpClient<IRoomTypeService, RoomTypeService>();
+builder.Services.AddHttpClient<IAuthService, AuthService>();
+
+SD.RoomTypeAPIBase = builder.Configuration["ServiceUrls:RoomTypeAPI"];
+SD.AuthAPIBase = builder.Configuration["ServiceUrls:AuthAPI"];
+
+builder.Services.AddScoped<ITokenProvider, TokenProvider>();
+builder.Services.AddScoped<IBaseService, BaseService>();
+builder.Services.AddScoped<IRoomTypeService, RoomTypeService>();
+builder.Services.AddScoped<IAuthService, AuthService>();
 
 var app = builder.Build();
 
@@ -24,7 +36,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(

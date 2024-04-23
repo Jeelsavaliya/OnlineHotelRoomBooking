@@ -5,7 +5,7 @@ using System.Net;
 using System.Text;
 using Newtonsoft.Json;
 
-namespace Mnago.Web.Service
+namespace Mango.Web.Service
 {
     public class BaseService : IBaseService
     {
