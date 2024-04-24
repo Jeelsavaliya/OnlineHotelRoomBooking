@@ -11,6 +11,7 @@ namespace Mango.Services.RoomTypeAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class RoomTypeAPIController : ControllerBase
     {
         private readonly AppDbContext _db;
@@ -59,13 +60,18 @@ namespace Mango.Services.RoomTypeAPI.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "ADMIN")]
         public ResponseDto Post([FromBody] RoomTypeDto roomTypeDto)
         {
             try
             {
-                if (roomTypeDto.File != null)
+                RoomType obj = _mapper.Map<RoomType>(roomTypeDto);
+                _db.RoomTypes.Add(obj);
+                _db.SaveChanges();
+
+                if (roomTypeDto.Photo != null)
                 {   
-                    string FilePath = "wwwroot\\Upload";
+                    string FilePath = "wwwroot\\RoomTypeImages";
                     string path = Path.Combine(Directory.GetCurrentDirectory(), FilePath);
 
                     if (!Directory.Exists(path))
@@ -80,11 +86,6 @@ namespace Mango.Services.RoomTypeAPI.Controllers
                     }
                 }
 
-                RoomType obj = _mapper.Map<RoomType>(roomTypeDto);
-                _db.RoomTypes.Add(obj);
-                _db.SaveChanges();
-
-                _response.Result = _mapper.Map<RoomTypeDto>(obj);
             }
             catch (Exception ex)
             {
@@ -96,6 +97,7 @@ namespace Mango.Services.RoomTypeAPI.Controllers
 
 
         [HttpPut]
+        [Authorize(Roles = "ADMIN")]
         public ResponseDto Put([FromBody] RoomTypeDto roomTypeDto)
         {
             try
@@ -116,6 +118,7 @@ namespace Mango.Services.RoomTypeAPI.Controllers
 
         [HttpDelete]
         [Route("{id:int}")]
+        [Authorize(Roles = "ADMIN")]
         public ResponseDto Delete(int id)
         {
             try

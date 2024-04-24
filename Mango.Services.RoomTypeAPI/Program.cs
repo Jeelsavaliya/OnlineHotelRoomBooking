@@ -15,7 +15,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-/*#region JWT Authentication
+#region JWT Authentication
 //JWT Authentication
 builder.Services.AddSwaggerGen(options =>
 {
@@ -43,7 +43,7 @@ builder.Services.AddSwaggerGen(options =>
 });
 
 builder.AddAppAuthetication();
-#endregion*/
+#endregion
 
 builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("myConnectionStrings")));
 
@@ -61,7 +61,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

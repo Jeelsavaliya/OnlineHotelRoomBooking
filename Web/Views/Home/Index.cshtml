@@ -1,9 +1,5 @@
-﻿
-
-@* @{
-    ViewData["Title"] = "Home Page";
-}
- *@
+﻿@* @using Mango.Web.Models
+@model IEnumerable<RoomTypeDto> *@
 
 <!-- Hero Section Begin -->
 <section class="hero spad set-bg" data-setbg="img/hero.jpg">
@@ -86,7 +82,6 @@
     </div>
 </section>
 <!-- Home About Section End -->
-
 <!-- Services Section Begin -->
 <section class="services spad">
     <div class="container">
@@ -155,7 +150,6 @@
     </div>
 </section>
 <!-- Services Section End -->
-
 <!-- Home Room Section Begin -->
 <section class="home-room spad">
     <div class="container">
@@ -171,44 +165,47 @@
 
 
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-3 col-md-6 col-sm-6 p-0">
-                <div class="home__room__item set-bg" data-setbg="img/home-room/hr-1.jpg">
-                    <div class="home__room__title">
-                        <h4>Deluxe Room</h4>
-                        <h2><sup>$</sup>55<span>/day</span></h2>
+       @*  @foreach (var item in Model)
+        { *@
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-6 p-0">
+                    <div class="home__room__item set-bg" data-setbg="img/home-room/hr-1.jpg">
+                        <div class="home__room__title">
+                            <h4>Deluxe Room</h4>
+                            <h2><sup>$</sup>55<span>/day</span></h2>
+                        </div>
+                        <a href="#">Booking Now</a>
                     </div>
-                    <a href="#">Booking Now</a>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 p-0">
+                    <div class="home__room__item set-bg" data-setbg="img/home-room/hr-2.jpg">
+                        <div class="home__room__title">
+                            <h4>Deluxe Room</h4>
+                            <h2><sup>$</sup>85<span>/day</span></h2>
+                        </div>
+                        <a asp-controller="Booking" asp-action="Booking">Booking Now</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 p-0">
+                    <div class="home__room__item set-bg" data-setbg="img/home-room/hr-3.jpg">
+                        <div class="home__room__title">
+                            <h4>Deluxe Room</h4>
+                            <h2><sup>$</sup>94<span>/day</span></h2>
+                        </div>
+                        <a href="#">Booking Now</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 p-0">
+                    <div class="home__room__item set-bg" data-setbg="img/home-room/hr-4.jpg">
+                        <div class="home__room__title">
+                            <h4>Deluxe Room</h4>
+                            <h2><sup>$</sup>71<span>/day</span></h2>
+                        </div>
+                        <a href="#">Booking Now</a>
+                    </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6 col-sm-6 p-0">
-                <div class="home__room__item set-bg" data-setbg="img/home-room/hr-2.jpg">
-                    <div class="home__room__title">
-                        <h4>Deluxe Room</h4>
-                        <h2><sup>$</sup>85<span>/day</span></h2>
-                    </div>
-                    <a asp-controller="Booking" asp-action="Booking">Booking Now</a>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6 p-0">
-                <div class="home__room__item set-bg" data-setbg="img/home-room/hr-3.jpg">
-                    <div class="home__room__title">
-                        <h4>Deluxe Room</h4>
-                        <h2><sup>$</sup>94<span>/day</span></h2>
-                    </div>
-                    <a href="#">Booking Now</a>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6 p-0">
-                <div class="home__room__item set-bg" data-setbg="img/home-room/hr-4.jpg">
-                    <div class="home__room__title">
-                        <h4>Deluxe Room</h4>
-                        <h2><sup>$</sup>71<span>/day</span></h2>
-                    </div>
-                    <a href="#">Booking Now</a>
-                </div>
-            </div>
-        </div>
+        @* } *@
     </div>
     <div class="container">
         <div class="home__explore">
@@ -224,7 +221,6 @@
     </div>
 </section>
 <!-- Home Room Section End -->
-
 <!-- Testimonial Section Begin -->
 <section class="testimonial spad">
     <div class="container">
@@ -384,7 +380,6 @@
     </div>
 </section>
 <!-- Testimonial Section End -->
-
 <!-- Chooseus Section Begin -->
 <div class="chooseus spad set-bg" data-setbg="img/chooseus-bg.jpg">
     <div class="container">
@@ -402,7 +397,6 @@
     </div>
 </div>
 <!-- Chooseus Section End -->
-
 <!-- Gallery Section Begin -->
 <section class="gallery spad">
     <div class="gallery__text">
@@ -434,7 +428,6 @@
     </div>
 </section>
 <!-- Gallery Section End -->
-
 <!-- Latest Blog Section Begin -->
 <section class="latest-blog spad">
     <div class="container">
